@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:bank_ux/pages/asset.dart';
 import 'package:bank_ux/pages/bank.dart';
 import 'package:bank_ux/pages/consolidate.dart';
-import 'package:bank_ux/pages/tmp.dart';
 import 'pages/page_trans.dart';
 
 void main() => runApp(MyApp());
@@ -47,9 +46,9 @@ class _MyHomePageState extends State<MyHomePage>
   double page;
 
   final List<Widget> pages = [
-    BankPage(),
-    ConsolidatePage(),
-    AssetPage(),
+    BankPage(0),
+    ConsolidatePage(1),
+    AssetPage(2),
   ];
 
   @override

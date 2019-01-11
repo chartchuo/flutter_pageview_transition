@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_sparkline/flutter_sparkline.dart';
 
 final Color bankColor = Color.fromARGB(255, 9, 154, 200);
 final Color assetColor = Color.fromARGB(255, 80, 66, 128);
@@ -178,6 +179,47 @@ class MockListView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(4, 12, 4, 0),
       child: Text('12/30/2556'),
+    );
+  }
+}
+
+class MockChart extends StatelessWidget {
+  final List<double> data = [
+    0.0,
+    1.0,
+    1.5,
+    2.0,
+    0.0,
+    0.0,
+    -0.5,
+    -1.0,
+    -0.5,
+    0.0,
+    1.0,
+    1.5,
+    2.0,
+    0.0,
+    0.0,
+    -0.5,
+    -1.0,
+    -0.5,
+    0.0
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Sparkline(
+      data: data,
+      lineColor: Colors.white54,
+      fillMode: FillMode.below,
+      fillGradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Colors.white30,
+          Colors.transparent,
+        ],
+      ),
     );
   }
 }

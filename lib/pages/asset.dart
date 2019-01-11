@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:bank_ux/components/widgets-lib.dart';
 import 'page_trans.dart';
 
-class AssetPage extends StatefulWidget {
-  @override
-  _AssetPageState createState() => _AssetPageState();
-}
+class AssetPage extends StatelessWidget {
+  const AssetPage(
+    this.pageid, {
+    Key key,
+  }) : super(key: key);
 
-class _AssetPageState extends State<AssetPage> {
+  final double pageid;
+
   @override
   Widget build(BuildContext context) {
     StreamBuilder<double> streamBuilder = StreamBuilder(
@@ -20,7 +21,7 @@ class _AssetPageState extends State<AssetPage> {
           return SizedBox();
         } else {
           return SizedBox(
-            height: (snap.data - 2.0).abs() * 1000,
+            height: (snap.data - pageid).abs() * 1000,
           );
         }
       },
@@ -64,29 +65,12 @@ class _AssetPageState extends State<AssetPage> {
                 style: Theme.of(context).textTheme.caption,
               ),
               CurrencyText(-9876543210.75, xlarge: true),
-              buildChart(),
+              MockChart(),
               SizedBox(height: 40),
             ],
           ),
         ),
       ],
-    );
-  }
-
-  var data = [0.0, 1.0, 1.5, 2.0, 0.0, 0.0, -0.5, -1.0, -0.5, 0.0, 0.0];
-  Widget buildChart() {
-    return Sparkline(
-      data: data,
-      lineColor: Colors.white54,
-      fillMode: FillMode.below,
-      fillGradient: LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [
-          Colors.white30,
-          Colors.transparent,
-        ],
-      ),
     );
   }
 }
