@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 
 import 'package:bank_ux/components/widgets-lib.dart';
+import 'page_trans.dart';
 
 class BankPage extends StatefulWidget {
   @override
@@ -11,6 +12,20 @@ class BankPage extends StatefulWidget {
 class _BankPageState extends State<BankPage> {
   @override
   Widget build(BuildContext context) {
+    StreamBuilder<double> streamBuilder = StreamBuilder(
+      stream: PageTransitionSubject().filter(2),
+      builder: (context, snap) {
+        if (snap.hasError) {
+          return SizedBox();
+        } else if (snap.data == null) {
+          return SizedBox();
+        } else {
+          return SizedBox(
+            height: (snap.data - 0.0).abs() * 1000,
+          );
+        }
+      },
+    );
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -28,9 +43,10 @@ class _BankPageState extends State<BankPage> {
         child: Column(
           children: <Widget>[
             buildTop(context),
-            Center(
-              child: Text('Page 2'),
-            ),
+            streamBuilder,
+            Expanded(
+              child: MockListView(),
+            )
           ],
         ),
       ),

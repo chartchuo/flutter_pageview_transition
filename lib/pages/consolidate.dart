@@ -47,76 +47,11 @@ class ConsolidatePage extends StatelessWidget {
             buildTop(context),
             streamBuilder,
             Expanded(
-              child: ListView(
-                children: <Widget>[
-                  date(),
-                  listItem(),
-                  listItem(),
-                  date(),
-                  listItem(),
-                  listItem(),
-                  listItem(),
-                  listItem(),
-                  listItem(),
-                  listItem(),
-                  date(),
-                  listItem(),
-                  listItem(),
-                  listItem(),
-                  listItem(),
-                  listItem(),
-                  listItem(),
-                  listItem(),
-                  listItem(),
-                ],
-              ),
+              child: MockListView(),
             )
           ],
         ),
       ),
-    );
-  }
-
-  Widget listItem() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(2, 0, 2, 2),
-      child: MyCard(
-        child: Padding(
-          padding: const EdgeInsets.all(4),
-          child: Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                width: 75,
-                child: TimeText('20:00', large: true),
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    MyText('xxxxxxxxxxxx'),
-                    MyText('xxxxxxxxxxxx', small: true),
-                  ],
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  CurrencyText(10000),
-                  MyText('xxxxxxxx', small: true),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget date() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(4, 12, 4, 0),
-      child: Text('12/30/2556'),
     );
   }
 

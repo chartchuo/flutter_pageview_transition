@@ -15,11 +15,13 @@ class _AssetPageState extends State<AssetPage> {
       stream: PageTransitionSubject().filter(2),
       builder: (context, snap) {
         if (snap.hasError) {
-          return Text('Error!');
+          return SizedBox();
         } else if (snap.data == null) {
-          return Text('nodata');
+          return SizedBox();
         } else {
-          return Text('${snap.data}');
+          return SizedBox(
+            height: (snap.data - 2.0).abs() * 1000,
+          );
         }
       },
     );
@@ -40,9 +42,10 @@ class _AssetPageState extends State<AssetPage> {
         child: Column(
           children: <Widget>[
             buildTop(context),
-            Center(
-              child: streamBuilder,
-            ),
+            streamBuilder,
+            Expanded(
+              child: MockListView(),
+            )
           ],
         ),
       ),
