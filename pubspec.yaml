@@ -1,0 +1,34 @@
+name: bank_ux
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_sparkline: ^0.1.0
+  intl: ^0.15.7
+  rxdart:
+  
+
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+  fonts:
+  - family: Kanit
+    fonts:
+    - asset: fonts/Kanit-Thin.ttf
+  - family: OpenSansCondensed
+    fonts:
+    - asset: fonts/OpenSansCondensed-Light.ttf
+
+
