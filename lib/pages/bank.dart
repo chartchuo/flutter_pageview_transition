@@ -33,7 +33,7 @@ class BankPage extends StatelessWidget {
             bankColor.withAlpha(64),
             bankColor,
             assetColor,
-            assetColor.withAlpha(128),
+            assetColor.withAlpha(192),
           ],
           begin: Alignment(-1, -1),
           end: Alignment(4, 1),
